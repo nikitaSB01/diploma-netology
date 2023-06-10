@@ -27,14 +27,15 @@
 ul,
 li {
   list-style-type: none;
+  list-style: none;
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!><!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .header {
   margin: 0 auto;
   position: relative;
   width: 100%;
-  height: 450px;
-  background-image: url(img/banner-bg.jpg);
+  min-height: 450px;
+  background-image: url("https://netology-code.github.io/html-2-diploma/sources/images/banner-bg.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   object-fit: cover;
@@ -53,32 +54,36 @@ li {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  z-index: 0;
 }
 .content {
-  /* position: relative; */
   max-width: 1170px;
   height: 100%;
   margin: 0 auto;
   padding: 0 15px;
   position: relative;
 }
+.wrapper {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 65px;
+  margin-bottom: 65px;
+}
 .row {
+  /* position: fixed; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 28px 15px 0 15px;
   z-index: 2;
 }
 .logo {
+  max-width: 179px;
+  max-height: 41px;
   z-index: 2;
 }
 .nav {
-  z-index: 2;
-  /*  justify-content: space-between; 
-     width: 100%;
-  max-width: 464px; */
 }
 .nav--list {
   display: flex;
@@ -92,70 +97,63 @@ li {
   font-family: "OpenSans", Arial, sans-serif;
   text-align: center;
 }
-
-li:not(:last-child) {
+.nav--list li:not(:last-child) {
   margin-right: 35px;
 }
 .link:hover {
   text-decoration: underline;
-  /*   border-bottom: 1px solid #ffffff; */
 }
-
+.header--content {
+}
 .tittle {
-  /*  margin: 0 auto; */
-  /*top: 20%;*/
-  /*  display: flex;
-  justify-content: center; */
-  max-width: 690px;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  z-index: 2;
 }
 .tittle-text {
+  text-align: center;
+  /*   display: flex;
+  justify-content: center;
+  align-items: center; */
+  /*           */
   font-size: 45px;
   line-height: 75px;
   text-transform: uppercase;
   color: #ffffff;
   font-weight: 700;
   font-family: "OpenSans", Arial, sans-serif;
-  text-align: center;
 }
 /*!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!*/
-.content-main {
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 65px;
-  margin-bottom: 65px;
-}
+
 .main-news {
-  display: flex;
+  /*   display: flex;
   flex-direction: column;
-  row-gap: 60px;
+  row-gap: 60px; */
+}
+.post:not(:last-child) {
+  margin-bottom: 60px;
 }
 .post {
   display: flex;
+  justify-content: space-between;
   max-width: 780px;
+  min-height: 295px;
   /*   gap: 60px 30px; */
 }
 .post--img {
+  max-width: 380px;
+  max-height: 295px;
 }
 .post--text {
-  display: flex;
-  flex-direction: column;
+  /*   display: flex;
+  flex-direction: column; */
   max-width: 380px;
-  max-height: 294px;
-
+  min-height: 295px;
   margin-left: 30px;
-  overflow: hidden;
+  /*  overflow: hidden; */
 }
 .post--subtitle {
   display: flex;
-  column-gap: 10px;
+}
+.post--subtitle li:not(:last-child) {
+  margin-right: 20px;
 }
 .post--subtitle a {
   font-family: "OpenSans", Arial, sans-serif;
@@ -173,7 +171,6 @@ li:not(:last-child) {
   font-family: "OpenSans", Arial, sans-serif;
   font-weight: bold;
   font-size: 20px;
-  /*   line-height: 24px; */
   font-weight: 700;
   text-transform: uppercase;
   color: #0f0d0e;
@@ -233,10 +230,9 @@ a {
 .new-posts--tittle {
   text-align: center;
   margin-bottom: 25px;
-}
-.new-posts--tittle h3 {
   font-family: "OpenSans", Arial, sans-serif;
   font-size: 14px;
+  /* line-height: 29px; */
   font-weight: bold;
   text-transform: uppercase;
   color: #0f0d0e;
@@ -248,12 +244,11 @@ a {
   height: 3px;
   opacity: 0.4;
   background-color: #b59f5b;
-  margin: 8px auto 0; /* Отступ с боков по центру и снизу */
+  margin: 10px auto 0; /* Отступ с боков по центру и снизу */
 }
 .post--tittle-aside a {
   font-family: "OpenSans";
   font-size: 14px;
-  /* line-height: 18px; */
   font-weight: 700;
   text-transform: uppercase;
   color: #000000;
@@ -261,19 +256,17 @@ a {
 .post--tittle-aside a:hover {
   color: #b59f5b;
 }
-.new-posts--list {
-  display: flex;
-  flex-direction: column;
-  row-gap: 22px;
+.new-posts--item:not(:last-child) {
+  margin-bottom: 22px;
 }
 .new-posts--item {
   display: flex;
-  width: 100%;
-  max-height: 70px;
-  column-gap: 18px;
-  overflow: hidden;
+  min-height: 70px;
 }
 .item--img {
+  max-width: 70px;
+  max-height: 70px;
+  margin-right: 18px;
 }
 .item--text {
 }
@@ -285,12 +278,13 @@ a {
   font-weight: 400;
   color: #000000;
 }
+.xs {
+  margin-top: 5px;
+}
 .xs a {
-  padding: 5px 0 0 0;
   font-family: "OpenSans", Arial, sans-serif;
   font-size: 14px;
-  /*  line-height: 18px; */
-  font-weight: 700;
+  font-weight: bold;
   text-transform: uppercase;
   color: #000000;
 }
@@ -310,16 +304,18 @@ button {
   cursor: pointer;
 }
 .form {
-  min-height: 50px;
+  min-height: 48px;
   max-width: 270px;
   width: 100%;
+  display: flex;
 }
 .search--item {
   position: relative;
-  max-width: 270px;
-  max-height: 50px;
-  height: 100%;
-  width: 100%;
+  min-width: 270px;
+  min-height: 48px;
+  /*   height: 100%;
+  width: 100%; */
+  background-color: #f4f7f6;
 }
 
 .search--input {
@@ -334,14 +330,10 @@ button {
   border: 1px solid #b59f5b;
 }
 
-.searh--submit {
-  position: absolute;
-  top: 0;
-  right: 0;
-  max-width: 48px;
-  max-height: 48px;
-  width: 100%;
-  height: 100%;
+.search--submit {
+  min-width: 48px;
+  min-height: 48px;
+
   background-color: #b59f5b;
 }
 .searh--submit:hover,
@@ -349,8 +341,13 @@ button {
   background-color: #323232;
 }
 .search-img {
-  max-width: 18px;
-  max-height: 18px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 0 auto;
+  background-image: url("img/search_9356.png");
+  /*   background-position: center; */
+  background-size: 100% 100%;
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!mailing!!!!!!!!!!!!!!!!!!!!!!!!*/
 
@@ -360,20 +357,21 @@ button {
   row-gap: 16px; */
 }
 .column--email-input-button {
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
+  background-color: #f4f7f6;
 }
 .mailing--email {
   background-color: #f4f7f6;
   padding-left: 18px;
   outline: none;
+  margin-bottom: 16px;
 }
 .mailing--submit {
-  /*  padding-top: 16px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 270px;
   width: 100%;
-  height: 49px;
+  min-height: 49px;
   background-color: #b59f5b;
   border: none;
   font-family: "OpenSans";
@@ -383,17 +381,14 @@ button {
   text-transform: uppercase;
   color: #ffffff;
 }
-/*!!!!!!!!!!!!!!!!!!!!!!!!!!!tegs!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!tags!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
-.tegs {
-}
-
-.tegs--container {
+.tags--container {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 5px;
 }
-.container--teg {
+.container--tag {
   box-sizing: border-box;
   max-height: 30px;
   padding: 3px 13px;
@@ -401,11 +396,11 @@ button {
   background-color: rgba(244, 243, 241, 0);
   border: 3px solid #eeeeee;
 }
-.container--teg:hover:nth-child(1) {
+.container--tag:hover:nth-child(1) {
   border: 3px solid #b59f5b;
 }
 
-.teg--link {
+.tag--link {
   font-family: "OpenSans";
   font-size: 12px;
   font-weight: 700;
@@ -413,9 +408,7 @@ button {
   color: #0f0d0e;
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!themes!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-ul {
-  list-style-type: none;
-}
+
 .list--item {
   border-bottom: 1px solid #eeeeee;
   position: relative;
@@ -462,6 +455,8 @@ ul {
   max-height: 20px;
   width: 100%;
   height: 100%;
+}
+.socials--icon span {
 }
 .footer--info {
   text-align: center;
